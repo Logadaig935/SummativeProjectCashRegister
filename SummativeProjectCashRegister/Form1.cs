@@ -133,12 +133,14 @@ namespace SummativeProjectCashRegister
                 ///Changes the value of the order number on the receipt
                 else if (tenderedAmount == 5212)
                 {
+                    /// Easter Egg Number 1
                     orderNumber = Convert.ToInt32(tenderedInput.Text);
                     orderNumber = 20051022;
                     goodByeMessage = "Aha! You're one of the Knights! Enjoy your geo!";
                 }
                 else if (tenderedAmount == 19474)
                 {
+                    /// Easter Egg Number 2
                     orderNumber = Convert.ToInt32(tenderedInput.Text);
                     orderNumber = 1784;
                     goodByeMessage = "Oh? You've been exploring this world for quite a while! Congratulations on collecting every artifact! Here is your geo.";
