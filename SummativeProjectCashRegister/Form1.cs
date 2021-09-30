@@ -123,14 +123,6 @@ namespace SummativeProjectCashRegister
                     orderNumber = 17;
                     goodByeMessage = "Good luck on your journey little Shadow...";
                 }
-                ///Changes the value of the order number on the receipt
-                else if (tenderedAmount > 19474)
-                {
-                    orderNumber = Convert.ToInt32(tenderedInput.Text);
-                    orderNumber = 0804;
-                    goodByeMessage = "Good luck on your journey little Shadow...";
-                }
-                ///Changes the value of the order number on the receipt
                 else if (tenderedAmount == 5212)
                 {
                     /// Easter Egg Number 1
@@ -145,6 +137,21 @@ namespace SummativeProjectCashRegister
                     orderNumber = 1784;
                     goodByeMessage = "Oh? You've been exploring this world for quite a while! Congratulations on collecting every artifact! Here is your geo.";
                 }
+                else if (tenderedAmount < 5212)
+                {
+                    orderNumber = Convert.ToInt32(tenderedInput.Text);
+                    orderNumber = 17;
+                    goodByeMessage = "Good luck on your journey little Shadow...";
+                }
+                ///Changes the value of the order number on the receipt
+                else if (tenderedAmount > 5212)
+                {
+                    orderNumber = Convert.ToInt32(tenderedInput.Text);
+                    orderNumber = 84;
+                    goodByeMessage = "Good luck on your journey little Shadow...";
+                }
+                ///Changes the value of the order number on the receipt
+
                 ///plays sound when you hit the print receipt button
                 SoundPlayer printSound = new SoundPlayer(Properties.Resources.receiptPrintSound);
                 printSound.Play();
