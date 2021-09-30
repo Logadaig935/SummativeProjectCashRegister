@@ -160,13 +160,21 @@ namespace SummativeProjectCashRegister
                 ///adds a delay between text on the receipt showing up so it can sync with the sound
                 await Task.Delay(500);
                 printerTextLabel.Text += $"\n\nHallownest Seal      x{sealAmount}     = {sealTotalPrice.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\nKings Idol               x{kingsAmount}     = {kingsTotalPrice.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\nArcane Egg             x{eggAmount}     = {eggTotalPrice.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\n\nSub Total                           {subTotal.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\nTax                                    {taxPrice.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\nTotal                                  {totalPrice.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\n\nTendered                            {tenderedAmount.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\nChange                               {changePrice.ToString("C")}";
+                await Task.Delay(100);
                 printerTextLabel.Text += $"\n\n\n{goodByeMessage}";
                 await Task.Delay(250);
                 ///makes the receipt have the correct properties and have a backcolor
