@@ -28,7 +28,6 @@ namespace SummativeProjectCashRegister
         double orderNumber;
         string goodByeMessage;
         int tenderedAmount;
-        int changeAmount;
         int sealAmount;
         int kingsAmount;
         int eggAmount;
@@ -69,10 +68,11 @@ namespace SummativeProjectCashRegister
                 eggTextBox.Enabled = false;
                 geoCalcButton.Enabled = false;
 
+                printerTextLabel.Text = $"Waiting for Order...";
             }
             catch
             {
-
+                printerTextLabel.Text = $"Incorect Input";
             }
         
         }
@@ -83,6 +83,7 @@ namespace SummativeProjectCashRegister
             {
                 tenderedAmount = Convert.ToInt32(tenderedInput.Text);
                 changePrice = tenderedAmount - totalPrice;
+
                 if (tenderedAmount >= totalPrice)
                 {
                     /// shows and stores the value of the change you will get after entering a correct amount in the tendered textbox
@@ -91,10 +92,13 @@ namespace SummativeProjectCashRegister
                 printerButton.Enabled = true;
                 changeCalcButton.Enabled = false;
                 tenderedInput.Enabled = false;
+
+                printerTextLabel.Text = $"Waiting for Order...";
+
                 } else if (tenderedAmount < totalPrice)
                 {
                     /// tells you if you put an incorect amount in the tendered textbox
-                    changeTextLabel.Text = $"Incorect Input";
+                    printerTextLabel.Text = $"Incorect Input";
                     Refresh();
                     printerButton.Enabled = false;
                     changeCalcButton.Enabled = true;
@@ -102,7 +106,7 @@ namespace SummativeProjectCashRegister
             }
             catch
             {
-
+                printerTextLabel.Text = $"Incorect Input";
             }
         }
 
@@ -139,18 +143,17 @@ namespace SummativeProjectCashRegister
                 }
                 else if (tenderedAmount < 5212)
                 {
+                    ///Changes the value of the order number on the receipt
                     orderNumber = Convert.ToInt32(tenderedInput.Text);
                     orderNumber = 17;
                     goodByeMessage = "Good luck on your journey little Shadow...";
                 }
-                ///Changes the value of the order number on the receipt
                 else if (tenderedAmount > 5212)
                 {
                     orderNumber = Convert.ToInt32(tenderedInput.Text);
                     orderNumber = 84;
                     goodByeMessage = "Good luck on your journey little Shadow...";
                 }
-                ///Changes the value of the order number on the receipt
 
                 ///plays sound when you hit the print receipt button
                 SoundPlayer printSound = new SoundPlayer(Properties.Resources.receiptPrintSound);
@@ -166,11 +169,11 @@ namespace SummativeProjectCashRegister
                 printerTextLabel.Text += $"\nDecember 31, 2021";
                 ///adds a delay between text on the receipt showing up so it can sync with the sound
                 await Task.Delay(500);
-                printerTextLabel.Text += $"\n\nHallownest Seal      x{sealAmount}     = {sealTotalPrice.ToString("C")}";
+                printerTextLabel.Text += $"\n\nHallownest Seal     x{sealAmount} = {sealTotalPrice.ToString("C")}";
                 await Task.Delay(100);
-                printerTextLabel.Text += $"\nKings Idol               x{kingsAmount}     = {kingsTotalPrice.ToString("C")}";
+                printerTextLabel.Text += $"\nKings Idol          x{kingsAmount} = {kingsTotalPrice.ToString("C")}";
                 await Task.Delay(100);
-                printerTextLabel.Text += $"\nArcane Egg             x{eggAmount}     = {eggTotalPrice.ToString("C")}";
+                printerTextLabel.Text += $"\nArcane Egg          x{eggAmount} = {eggTotalPrice.ToString("C")}";
                 await Task.Delay(100);
                 printerTextLabel.Text += $"\n\nSub Total                           {subTotal.ToString("C")}";
                 await Task.Delay(100);

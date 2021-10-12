@@ -120,7 +120,7 @@
             // printerTextLabel
             // 
             this.printerTextLabel.BackColor = System.Drawing.Color.Transparent;
-            this.printerTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printerTextLabel.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printerTextLabel.ForeColor = System.Drawing.Color.MistyRose;
             this.printerTextLabel.Location = new System.Drawing.Point(553, 32);
             this.printerTextLabel.Name = "printerTextLabel";
